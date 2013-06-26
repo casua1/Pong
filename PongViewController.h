@@ -10,7 +10,13 @@
 
 @interface PongViewController : UIViewController
 
-@property (strong,nonatomic) UIViewController *optionsViewController;
+@property (strong, atomic) NSTimer *timer;
+@property (strong, nonatomic) UIViewController *optionsViewController;
+@property (strong, atomic) IBOutlet UILabel *timerLabel;
+@property (readwrite, atomic) double timerCount;
 
 -(IBAction)switchToOptionsView:(id)sender;
+-(void)incrementTimer;
+
+-(void) timerUpdate;
 @end

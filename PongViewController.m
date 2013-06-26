@@ -14,13 +14,14 @@
 
 @implementation PongViewController
 
-@synthesize optionsViewController;
+@synthesize optionsViewController, timer, timerLabel, timerCount;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    timerCount = 0;
+    timer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(incrementTimer) userInfo:nil repeats:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -38,6 +39,7 @@
     [self.navigationController pushViewController:self.optionsViewController animated:YES];
 }
 
+/*
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -50,6 +52,14 @@
     UITouch *touch = [touches anyObject];
     CGPoint touchPoint = [touch locationInView:self.view];
     NSLog(@"touch moved: %f %f", touchPoint.x, touchPoint.y);
+}
+*/
+
+-(void)incrementTimer
+{
+    timerCount = timerCount+.1;
+    NSLog(@"Time: %f", timerCount);
+    [timerLabel setText:[NSString stringWithFormat:@"Time: %f ", timerCount]];
 }
 
 - (void)didReceiveMemoryWarning
