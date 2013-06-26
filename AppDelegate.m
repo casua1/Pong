@@ -8,21 +8,20 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "PongViewController.h"
 
 @implementation AppDelegate
 
-@synthesize viewController, optionsViewController, navController;
+@synthesize viewController, navController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-        self.optionsViewController = [[ViewController alloc] initWithNibName:@"OptionsViewController" bundle:nil];
+        self.viewController = [[PongViewController alloc] initWithNibName:@"PongViewController_iPhone" bundle:nil];
     } else {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
+        self.viewController = [[PongViewController alloc] initWithNibName:@"PongViewController_iPad" bundle:nil];
     }
     //Initialize nav controller
     self.navController = [[UINavigationController alloc] initWithRootViewController:viewController];
