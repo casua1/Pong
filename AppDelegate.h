@@ -13,7 +13,9 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
 @property (strong, nonatomic) UINavigationController *navController;
-@property (strong, nonatomic) PongViewController *viewController;
+
+@property (strong, nonatomic) PongViewController *pongViewController;
 
 @end

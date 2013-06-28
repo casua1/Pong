@@ -15,6 +15,9 @@
 @property (strong, atomic) IBOutlet UILabel *timerLabel;
 @property (readwrite, atomic) double timerCount;
 
+
+
+
 -(IBAction)switchToOptionsView:(id)sender;
 -(void)incrementTimer;
 

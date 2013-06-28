@@ -20,6 +20,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSString *path = @"data.txt";
+    NSError *error;
+    NSString *stringFromFileAtPath = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+    if (stringFromFileAtPath == nil)
+    {
+        NSLog(@"Error reading file at %@\n%@", path, [error localizedFailureReason]);
+    }
     timerCount = 0;
     timer = [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(incrementTimer) userInfo:nil repeats:YES];
 }
@@ -37,6 +44,7 @@
 {
     self.optionsViewController = [[UIViewController alloc] initWithNibName:@"OptionsViewController" bundle:nil];
     [self.navigationController pushViewController:self.optionsViewController animated:YES];
+    [self.optionsViewController setTitle:@"Options"];
 }
 
 /*
@@ -58,7 +66,7 @@
 -(void)incrementTimer
 {
     timerCount = timerCount+.1;
-    NSLog(@"Time: %f", timerCount);
+//    NSLog(@"Time: %f", timerCount);
     [timerLabel setText:[NSString stringWithFormat:@"Time: %f ", timerCount]];
 }
 

@@ -12,19 +12,19 @@
 
 @implementation AppDelegate
 
-@synthesize viewController, navController;
+@synthesize pongViewController, navController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[PongViewController alloc] initWithNibName:@"PongViewController_iPhone" bundle:nil];
+        self.pongViewController = [[PongViewController alloc] initWithNibName:@"PongViewController_iPhone" bundle:nil];
     } else {
-        self.viewController = [[PongViewController alloc] initWithNibName:@"PongViewController_iPad" bundle:nil];
+        self.pongViewController = [[PongViewController alloc] initWithNibName:@"PongViewController_iPad" bundle:nil];
     }
     //Initialize nav controller
-    self.navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:pongViewController];
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     return YES;
